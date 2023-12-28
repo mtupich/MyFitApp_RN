@@ -1,6 +1,7 @@
 import React from "react";
-import CalendarStrip from "react-native-calendar-strip";
+import { useNavigation } from "@react-navigation/native";
 import moment from "moment";
+import CalendarStrip from "react-native-calendar-strip";
 import { FlatList, Text } from "react-native";
 import { FAB } from "react-native-elements";
 import { Feather } from "@expo/vector-icons";
@@ -17,7 +18,7 @@ import {
 import ItemList from "../../components/ItemList";
 
 function Home() {
-
+    const navigation = useNavigation()
     const data = [
         {
             id: "teste1",
@@ -33,8 +34,8 @@ function Home() {
         }
     ]
 
-    const handleNewItem = (): void=> {
-
+    const handleNewItem = (): void => {
+        // navigation.navigate("NewItem");
     }
 
     return (
