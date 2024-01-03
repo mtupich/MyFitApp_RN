@@ -35,7 +35,7 @@ function Home() {
     ]
 
     const handleNewItem = (): void => {
-        // navigation.navigate("NewItem");
+        navigation.navigate("NewItem");
     }
 
     return (

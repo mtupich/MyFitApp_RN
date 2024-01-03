@@ -29,6 +29,7 @@ const Routes: React.FC = () => {
                 <Stack.Screen
                     name="NewItem"
                     component={NewItem}
+                    options={{ title: "Novo Item" }}
                 />
             </Stack.Navigator>
         </NavigationContainer>
