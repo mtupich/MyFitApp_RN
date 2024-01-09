@@ -16,9 +16,11 @@ import {
         BodyContainer
         } from './styles';
 import ItemList from "../../components/ItemList";
+import { useData } from "../../hooks/data";
 
 function Home() {
     const navigation = useNavigation()
+    const { handleChangeDate, currentList, currentKcal } = useData();
     const data = [
         {
             id: "teste1",
@@ -58,7 +60,7 @@ function Home() {
                     disabledDateNameStyle={{ color: "grey" }}
                     disabledDateNumberStyle={{ color: "grey" }}
                     iconContainer={{ flex: 0.1 }}
-                    onDateSelected={ () => null }
+                    onDateSelected={handleChangeDate}
                     startingDate={moment().subtract(2, "days")}
                     selectedDate={moment()}
                     scrollerPaging={true}
@@ -67,13 +69,13 @@ function Home() {
                 />
                 <HeaderTitle>Consumido no dia</HeaderTitle>
                 <HeaderContainerHighlight>
-                    <HeaderTextCounterHighlight>100</HeaderTextCounterHighlight>
+                    <HeaderTextCounterHighlight>{currentKcal}</HeaderTextCounterHighlight>
                     <HeaderTextHighlight>/kcal</HeaderTextHighlight>
                 </HeaderContainerHighlight>
             </HeaderContainer>
             <BodyContainer>
                     <FlatList
-                        data={data}
+                        data={currentList}
                         keyExtractor={item => item.id }
                         renderItem={({ item }) => <ItemList item={item} /> }
                     />
