@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import moment from "moment";
 import CalendarStrip from "react-native-calendar-strip";
-import { FlatList, Text } from "react-native";
+import { FlatList, Text, TouchableOpacity } from "react-native";
 import { FAB } from "react-native-elements";
 import { Feather } from "@expo/vector-icons";
 
@@ -77,7 +77,12 @@ function Home() {
                     <FlatList
                         data={currentList}
                         keyExtractor={item => item.id }
-                        renderItem={({ item }) => <ItemList item={item} /> }
+                        renderItem={({ item }) => (
+                            <TouchableOpacity>
+                                <ItemList item={item} />
+                            </TouchableOpacity>
+                           
+                        )}  
                     />
                     <FAB 
                         icon={<Feather name="plus" size={24} color="white"/>}
