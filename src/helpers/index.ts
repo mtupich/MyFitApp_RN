@@ -21,3 +21,9 @@ export const getLocalStorage = async () => {
     const jsonValue = await AsyncStorage.getItem('@listITems')
     return jsonValue != null ? JSON.parse(jsonValue) : null;
 }
+
+export const removeItemFromList = async (itemId: string, currentList: Item[]) => {
+    const updatedList = currentList.filter(item => item.id !== itemId);
+    await setLocalStorage(updatedList);
+    return updatedList;
+};
